@@ -11,6 +11,11 @@
 #endif
 
 #ifdef __OBJC__
+
   #import <UIKit/UIKit.h>
   #import <Foundation/Foundation.h>
+
+  #import <tapkit/tapkit.h>
+  #import <libextobjc/extobjc.h>
+
 #endif
