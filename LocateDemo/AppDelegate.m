@@ -17,9 +17,13 @@
   [DDLog addLogger:[DDTTYLogger sharedInstance]];
   
   DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-  fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+  fileLogger.rollingFrequency = 60 * 60 * 24;
   fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
   [DDLog addLogger:fileLogger];
+  
+  
+  DDLogInfo(@"[Locator] Application launched: launch");
+  [[TKLocator sharedObject] launchLocationServiceIfNeeded];
   
   
   _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -31,15 +35,16 @@
   return YES;
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
 {
-  DDLogInfo(@"[Locator] Did Become Active");
+  DDLogInfo(@"[Locator] Will Enter Foreground: launch");
   [[TKLocator sharedObject] launchLocationServiceIfNeeded];
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application
+- (void)applicationDidEnterBackground:(UIApplication *)application
 {
-  DDLogInfo(@"[Locator] Will Resign Active");
+  DDLogInfo(@"[Locator] Did Enter Background: shutdown");
   [[TKLocator sharedObject] shutdownLocationServiceIfNeeded];
 }
 

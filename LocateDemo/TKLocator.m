@@ -29,12 +29,13 @@
     [self startLocationService];
   } else if ( status==kCLAuthorizationStatusDenied ) {
     DDLogInfo(@"[Locator] Launch Service: Denied，不启动服务。");
-    
+    // ...
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
     DDLogInfo(@"[Locator] Launch Service: Not Determined，启动服务, 让系统弹窗口。");
     [self startLocationService];
   } else if ( status==kCLAuthorizationStatusRestricted ) {
     DDLogInfo(@"[Locator] Launch Service: Restricted，不启动服务。");
+    // ...
   }
 }
 
@@ -46,10 +47,13 @@
     [self stopLocationService];
   } else if ( status==kCLAuthorizationStatusDenied ) {
     DDLogInfo(@"[Locator] Shutdown Service: Denied, 未授权, 未开启服务, 不需要关闭。");
+    // ...
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
     DDLogInfo(@"[Locator] Shutdown Service: Not Determined, 未决定, 未开启服务, 不需要关闭。");
+    // ...
   } else if ( status==kCLAuthorizationStatusRestricted ) {
     DDLogInfo(@"[Locator] Shutdown Service: Restricted, 不需要关闭。");
+    // ...
   }
 }
 
@@ -90,10 +94,13 @@
     [self notifyDidStartUpdatingLocationIfNeeded];
   } else if ( status==kCLAuthorizationStatusDenied ) {
     DDLogInfo(@"[Locator] Start: Denied, 未授权, 根本不会执行到这里。");
+    // ...
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
     DDLogInfo(@"[Locator] Start: Not Determined, 未决定, 不需要通知。");
+    // ...
   } else if ( status==kCLAuthorizationStatusRestricted ) {
     DDLogInfo(@"[Locator] Start: Restricted, 根本不会执行到这里。");
+    // ...
   }
   
   
@@ -133,7 +140,7 @@
     [self notifyDidStopUpdatingLocationIfNeeded];
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
     DDLogInfo(@"[Locator] Change Authorization Status: Not Determined");
-    // Do nothing here
+    // ...
   } else if ( status==kCLAuthorizationStatusRestricted ) {
     DDLogInfo(@"[Locator] Change Authorization Status: Restricted");
     _locationManager.delegate = nil;
