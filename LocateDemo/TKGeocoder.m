@@ -53,7 +53,7 @@
   NSArray *results = [_result objectForKey:@"results"];
   for ( NSDictionary *addressDictionary in results ) {
     NSArray *types = [addressDictionary objectForKey:@"types"];
-    if ( [types hasObjectEqualTo:@"street_address"] ) {
+    if ( [types hasObjectEqualTo:@"route"] ) {
       return addressDictionary;
     }
   }

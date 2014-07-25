@@ -7,7 +7,6 @@
 //
 
 #import "TKLocator.h"
-#import <AddressBookUI/AddressBookUI.h>
 
 @implementation TKLocator
 
@@ -26,16 +25,16 @@
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
   if ( status==kCLAuthorizationStatusAuthorized ) {
-    TKPRINT(@"Authorized，启动服务。");
+    DDLogInfo(@"[Locator] Launch Service: Authorized，启动服务。");
     [self startLocationService];
   } else if ( status==kCLAuthorizationStatusDenied ) {
-    TKPRINT(@"Denied，不启动服务。");
+    DDLogInfo(@"[Locator] Launch Service: Denied，不启动服务。");
     
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
-    TKPRINT(@"Not Determined，启动服务, 让系统弹窗口。");
+    DDLogInfo(@"[Locator] Launch Service: Not Determined，启动服务, 让系统弹窗口。");
     [self startLocationService];
   } else if ( status==kCLAuthorizationStatusRestricted ) {
-    TKPRINT(@"Restricted，不启动服务。");
+    DDLogInfo(@"[Locator] Launch Service: Restricted，不启动服务。");
   }
 }
 
@@ -43,14 +42,14 @@
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
   if ( status==kCLAuthorizationStatusAuthorized ) {
-    TKPRINT(@"Authorized, 授权了, 可能开启了服务, 应该关闭。");
+    DDLogInfo(@"[Locator] Shutdown Service: Authorized, 授权了, 可能开启了服务, 应该关闭。");
     [self stopLocationService];
   } else if ( status==kCLAuthorizationStatusDenied ) {
-    TKPRINT(@"Denied, 未授权, 未开启服务, 不需要关闭。");
+    DDLogInfo(@"[Locator] Shutdown Service: Denied, 未授权, 未开启服务, 不需要关闭。");
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
-    TKPRINT(@"Not Determined, 未决定, 未开启服务, 不需要关闭。");
+    DDLogInfo(@"[Locator] Shutdown Service: Not Determined, 未决定, 未开启服务, 不需要关闭。");
   } else if ( status==kCLAuthorizationStatusRestricted ) {
-    TKPRINT(@"Restricted, 不需要关闭。");
+    DDLogInfo(@"[Locator] Shutdown Service: Restricted, 不需要关闭。");
   }
 }
 
@@ -66,6 +65,7 @@
                          parameters:nil
                   completionHandler:^(id result, NSError *error) {
                     @strongify(self);
+                    DDLogInfo(@"[Locator] Update Address: %@", self.geocoder.result);
                     [self notifyDidUpdateAddress];
                   }];
 }
@@ -86,14 +86,14 @@
 {
   CLAuthorizationStatus status = [CLLocationManager authorizationStatus];
   if ( status==kCLAuthorizationStatusAuthorized ) {
-    TKPRINT(@"Authorized, 授权了, 需要通知。");
+    DDLogInfo(@"[Locator] Start: Authorized, 授权了, 需要通知。");
     [self notifyDidStartUpdatingLocationIfNeeded];
   } else if ( status==kCLAuthorizationStatusDenied ) {
-    TKPRINT(@"Denied, 未授权, 根本不会执行到这里。");
+    DDLogInfo(@"[Locator] Start: Denied, 未授权, 根本不会执行到这里。");
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
-    TKPRINT(@"Not Determined, 未决定, 不需要通知。");
+    DDLogInfo(@"[Locator] Start: Not Determined, 未决定, 不需要通知。");
   } else if ( status==kCLAuthorizationStatusRestricted ) {
-    TKPRINT(@"Restricted, 根本不会执行到这里。");
+    DDLogInfo(@"[Locator] Start: Restricted, 根本不会执行到这里。");
   }
   
   
@@ -122,20 +122,20 @@
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
   if ( status==kCLAuthorizationStatusAuthorized ) {
-    TKPRINT(@"Authorized");
+    DDLogInfo(@"[Locator] Change Authorization Status: Authorized");
     [self notifyDidStartUpdatingLocationIfNeeded];
     _locationManager.delegate = self;
     [_locationManager startUpdatingLocation];
   } else if ( status==kCLAuthorizationStatusDenied ) {
-    TKPRINT(@"Denied");
+    DDLogInfo(@"[Locator] Change Authorization Status: Denied");
     _locationManager.delegate = nil;
     [_locationManager stopUpdatingLocation];
     [self notifyDidStopUpdatingLocationIfNeeded];
   } else if ( status==kCLAuthorizationStatusNotDetermined ) {
-    TKPRINT(@"Not Determined");
+    DDLogInfo(@"[Locator] Change Authorization Status: Not Determined");
     // Do nothing here
   } else if ( status==kCLAuthorizationStatusRestricted ) {
-    TKPRINT(@"Restricted");
+    DDLogInfo(@"[Locator] Change Authorization Status: Restricted");
     _locationManager.delegate = nil;
     [_locationManager stopUpdatingLocation];
     [self notifyDidStopUpdatingLocationIfNeeded];
@@ -144,7 +144,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-  TKPRINTMETHOD();
+  DDLogInfo(@"[Locator] Update Location: %@", [locations lastObject]);
   _location = [locations lastObject];
   [self notifyDidUpdateLocation];
   
@@ -153,7 +153,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-  TKPRINTMETHOD();
+  DDLogInfo(@"[Locator] Failed With Error");
   _location = nil;
   [self notifyDidUpdateLocation];
   

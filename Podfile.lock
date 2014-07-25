@@ -1,4 +1,9 @@
 PODS:
+  - CocoaLumberjack (1.9.1):
+    - CocoaLumberjack/Extensions
+  - CocoaLumberjack/Core (1.9.1)
+  - CocoaLumberjack/Extensions (1.9.1):
+    - CocoaLumberjack/Core
   - libextobjc (0.4):
     - libextobjc/EXTADT
     - libextobjc/EXTConcreteProtocol
@@ -37,6 +42,7 @@ PODS:
   - tapkit (1.0.0)
 
 DEPENDENCIES:
+  - CocoaLumberjack (~> 1.9.0)
   - libextobjc (~> 0.4)
   - tapkit (from `https://github.com/kvmisc/tapkit.git`)
 
@@ -45,6 +51,7 @@ EXTERNAL SOURCES:
     :git: https://github.com/kvmisc/tapkit.git
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 94accd5749f5c5d15134c8d50f34a973aed8ef69
   libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
   tapkit: 62e3472171e923b970aad32f903d7ec4dfa3f128
 
