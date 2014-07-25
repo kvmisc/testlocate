@@ -11,6 +11,7 @@
 @implementation TKGeocoder
 
 - (void)reverseGeocodeLocation:(CLLocation *)location
+                    parameters:(NSDictionary *)parameters
              completionHandler:(TKGeocodeCompletionHandler)completionHandler
 {
   if ( location ) {
@@ -20,12 +21,12 @@
     
     [context setObject:location forKey:@"location"];
     
-    if ( completionHandler ) {
-      [context setObject:[completionHandler copy] forKey:@"completionHandler"];
+    if ( parameters ) {
+      [context setObject:parameters forKey:@"parameters"];
     }
     
-    if ( _parameters ) {
-      [context setObject:[_parameters copy] forKey:@"parameters"];
+    if ( completionHandler ) {
+      [context setObject:[completionHandler copy] forKey:@"completionHandler"];
     }
     
     [self performSelector:@selector(parseLocationWithContext:)
@@ -37,8 +38,6 @@
 - (void)cancelAndClear
 {
   [NSObject cancelPreviousPerformRequestsWithTarget:self];
-  
-  _parameters = nil;
   
   [_request removeObserverAndCancel];
   _location = nil;
@@ -195,8 +194,8 @@
 - (void)parseLocationWithContext:(NSDictionary *)context
 {
   CLLocation *location = [context objectForKey:@"location"];
-  TKGeocodeCompletionHandler completionHandler = [context objectForKey:@"completionHandler"];
   NSDictionary *parameters = [context objectForKey:@"parameters"];
+  TKGeocodeCompletionHandler completionHandler = [context objectForKey:@"completionHandler"];
   
   
   NSMutableDictionary *map = [[NSMutableDictionary alloc] init];
@@ -261,8 +260,6 @@
 - (void)dealloc
 {
   [NSObject cancelPreviousPerformRequestsWithTarget:self];
-  
-  _parameters = nil;
   
   [_request removeObserverAndCancel];
   _location = nil;

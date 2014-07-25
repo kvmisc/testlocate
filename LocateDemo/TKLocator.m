@@ -63,6 +63,7 @@
   
   @weakify(self);
   [_geocoder reverseGeocodeLocation:_location
+                         parameters:nil
                   completionHandler:^(id result, NSError *error) {
                     @strongify(self);
                     [self notifyDidUpdateAddress];

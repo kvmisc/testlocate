@@ -12,15 +12,11 @@
 typedef void (^TKGeocodeCompletionHandler)(id result, NSError *error);
 
 @interface TKGeocoder : NSObject {
-  NSDictionary *_parameters;
-  
   TKHTTPRequest *_request;
   CLLocation *_location;
   NSDictionary *_result;
   BOOL _parsing;
 }
-
-@property (nonatomic, strong) NSDictionary *parameters;
 
 @property (nonatomic, strong, readonly) TKHTTPRequest *request;
 @property (nonatomic, strong, readonly) CLLocation *location;
@@ -28,6 +24,7 @@ typedef void (^TKGeocodeCompletionHandler)(id result, NSError *error);
 @property (nonatomic, readonly) BOOL parsing;
 
 - (void)reverseGeocodeLocation:(CLLocation *)location
+                    parameters:(NSDictionary *)parameters
              completionHandler:(TKGeocodeCompletionHandler)completionHandler;
 
 - (void)cancelAndClear;

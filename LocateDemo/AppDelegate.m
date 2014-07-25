@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "TKViewController.h"
+#import "TKLocator.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,16 @@
   _window.backgroundColor = [UIColor whiteColor];
   [_window makeKeyAndVisible];
   return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+  [[TKLocator sharedObject] shutdownLocationServiceIfNeeded];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+  [[TKLocator sharedObject] launchLocationServiceIfNeeded];
 }
 
 @end

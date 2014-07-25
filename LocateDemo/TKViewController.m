@@ -7,6 +7,7 @@
 //
 
 #import "TKViewController.h"
+#import "TKLocator.h"
 
 @implementation TKViewController
 
@@ -14,34 +15,54 @@
 {
   [super viewDidLoad];
   
-  UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  button.frame = CGRectMake(10, 10, 300, 40);
-  [button addTarget:self action:@selector(doit1:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:button];
-  
-  button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  button.frame = CGRectMake(10, 60, 300, 40);
-  [button addTarget:self action:@selector(doit2:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:button];
-  
-  button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-  button.frame = CGRectMake(10, 110, 300, 40);
-  [button addTarget:self action:@selector(doit3:) forControlEvents:UIControlEventTouchUpInside];
-  [self.view addSubview:button];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didStartUpdatingLocation:)
+                                               name:TKLocatorDidStartUpdatingLocationNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didUpdateLocation:)
+                                               name:TKLocatorDidUpdateLocationNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didStopUpdatingLocation:)
+                                               name:TKLocatorDidStopUpdatingLocationNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(didUpdateAddress:)
+                                               name:TKLocatorDidUpdateAddressNotification
+                                             object:nil];
   
 }
 
-
-- (void)doit1:(id)sender
+- (void)dealloc
 {
+  [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)doit2:(id)sender
+
+- (void)didStartUpdatingLocation:(NSNotification *)noti
 {
+  TKLocator *locator = [noti object];
+  NSLog(@"didStartUpdatingLocation: %@", locator);
 }
 
-- (void)doit3:(id)sender
+- (void)didUpdateLocation:(NSNotification *)noti
 {
+  TKLocator *locator = [noti object];
+  NSLog(@"didUpdateLocation: %@", locator.location);
+}
+
+- (void)didStopUpdatingLocation:(NSNotification *)noti
+{
+  TKLocator *locator = [noti object];
+  NSLog(@"didStopUpdatingLocation: %@", locator);
+}
+
+
+- (void)didUpdateAddress:(NSNotification *)noti
+{
+  TKLocator *locator = [noti object];
+  NSLog(@"didUpdateAddress: %@", [locator.geocoder formattedAddress]);
 }
 
 @end
