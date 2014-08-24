@@ -218,7 +218,7 @@
   
   [_request removeObserverAndCancel];
   
-  _request = [[TKHTTPRequest alloc] initWithAddress:[address stringByAddingQueryDictionary:map]];
+  _request = [[TKHTTPRequest alloc] initWithAddress:[address stringByAppendingQueryDictionary:map]];
   
   @weakify(self);
   
