@@ -39,7 +39,7 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4)
   - libextobjc/UmbrellaHeader (0.4)
-  - tapkit (1.0.3)
+  - tapkit (1.0.8)
 
 DEPENDENCIES:
   - CocoaLumberjack (~> 1.9.0)
@@ -53,6 +53,6 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
   libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
-  tapkit: a950ed2c3da976290685540825d65a27e0e85da8
+  tapkit: bb0d58c430616813c122124d5eaab849dca47f5f
 
 COCOAPODS: 0.33.1
