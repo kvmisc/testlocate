@@ -2,7 +2,7 @@
 //  TKGeocoder.h
 //  LocateDemo
 //
-//  Created by Kevin Wu on 7/24/14.
+//  Created by Kevin Wu on 11/14/14.
 //  Copyright (c) 2014 Tapmob. All rights reserved.
 //
 
@@ -12,16 +12,16 @@
 typedef void (^TKGeocodeCompletionHandler)(id result, NSError *error);
 
 @interface TKGeocoder : NSObject {
-  TKHTTPRequest *_request;
-  CLLocation *_location;
-  NSDictionary *_result;
-  BOOL _parsing;
+    TKHTTPRequest *_request;
+    CLLocation *_location;
+    NSDictionary *_result;
+    BOOL _parsing;
 }
 
-@property (nonatomic, strong, readonly) TKHTTPRequest *request;
-@property (nonatomic, strong, readonly) CLLocation *location;
-@property (nonatomic, strong, readonly) NSDictionary *result;
-@property (nonatomic, readonly) BOOL parsing;
+@property (nonatomic, strong) TKHTTPRequest *request;
+@property (nonatomic, strong) CLLocation *location;
+@property (nonatomic, strong) NSDictionary *result;
+@property (nonatomic, assign) BOOL parsing;
 
 - (void)reverseGeocodeLocation:(CLLocation *)location
                     parameters:(NSDictionary *)parameters
@@ -30,16 +30,12 @@ typedef void (^TKGeocodeCompletionHandler)(id result, NSError *error);
 - (void)cancelAndClear;
 
 
-- (NSDictionary *)addressDictionary;
-- (NSString *)formattedAddress;
+- (NSString *)address;
 
 - (NSString *)country;
-- (NSString *)administrativeArea;
-- (NSString *)subAdministrativeArea;
-- (NSString *)locality;
-- (NSString *)subLocality;
-- (NSString *)thoroughfare;
-- (NSString *)subThoroughfare;
-- (NSString *)postalCode;
+- (NSString *)state;
+- (NSString *)city;
+- (NSString *)district;
+- (NSString *)road;
 
 @end

@@ -63,7 +63,7 @@
   if ( !_geocoder ) {
     _geocoder = [[TKGeocoder alloc] init];
   }
-  
+
   @weakify(self);
   [_geocoder reverseGeocodeLocation:_location
                          parameters:nil

@@ -4,7 +4,7 @@ PODS:
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
-  - libextobjc (0.4):
+  - libextobjc (0.4.1):
     - libextobjc/EXTADT
     - libextobjc/EXTConcreteProtocol
     - libextobjc/EXTKeyPathCoding
@@ -17,29 +17,29 @@ PODS:
     - libextobjc/NSMethodSignature+EXT
     - libextobjc/RuntimeExtensions
     - libextobjc/UmbrellaHeader
-  - libextobjc/EXTADT (0.4):
+  - libextobjc/EXTADT (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTConcreteProtocol (0.4):
+  - libextobjc/EXTConcreteProtocol (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTKeyPathCoding (0.4):
+  - libextobjc/EXTKeyPathCoding (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTNil (0.4):
+  - libextobjc/EXTNil (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSafeCategory (0.4):
+  - libextobjc/EXTSafeCategory (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTScope (0.4):
+  - libextobjc/EXTScope (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSelectorChecking (0.4):
+  - libextobjc/EXTSelectorChecking (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/EXTSynthesize (0.4):
+  - libextobjc/EXTSynthesize (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSInvocation+EXT (0.4):
+  - libextobjc/NSInvocation+EXT (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/NSMethodSignature+EXT (0.4):
+  - libextobjc/NSMethodSignature+EXT (0.4.1):
     - libextobjc/RuntimeExtensions
-  - libextobjc/RuntimeExtensions (0.4)
-  - libextobjc/UmbrellaHeader (0.4)
-  - tapkit (1.0.8)
+  - libextobjc/RuntimeExtensions (0.4.1)
+  - libextobjc/UmbrellaHeader (0.4.1)
+  - tapkit (1.0.9)
 
 DEPENDENCIES:
   - CocoaLumberjack (~> 1.9.0)
@@ -52,7 +52,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
-  libextobjc: ba42e4111f433273a886cd54f0ddaddb7f62f82f
-  tapkit: bb0d58c430616813c122124d5eaab849dca47f5f
+  libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
+  tapkit: 96c199276882c7423fc3d374c2b194a654ebbd98
 
 COCOAPODS: 0.33.1

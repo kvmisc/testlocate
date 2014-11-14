@@ -62,7 +62,7 @@
 - (void)didUpdateAddress:(NSNotification *)noti
 {
   TKLocator *locator = [noti object];
-  NSLog(@"Did Update Address: %@", [locator.geocoder formattedAddress]);
+  NSLog(@"Did Update Address: %@", [locator.geocoder city]);
 }
 
 @end
