@@ -19,7 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0C5106987C6746CB98A730C5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		060CEC34D70CF18F354A76A6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		23E776F31981F268000229F3 /* LocateDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocateDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		23E776F61981F268000229F3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		23E776FA1981F268000229F3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -36,6 +36,7 @@
 		23E777291981F425000229F3 /* TKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKViewController.h; sourceTree = "<group>"; };
 		23E7772A1981F425000229F3 /* TKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKViewController.m; sourceTree = "<group>"; };
 		D8F19E07D2E940E8B975CED7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF0874EE431B458D85F3BA5B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +53,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A529BEA1A8B374600023725 /* Locator */ = {
+			isa = PBXGroup;
+			children = (
+				23E777271981F425000229F3 /* TKLocator.h */,
+				23E777281981F425000229F3 /* TKLocator.m */,
+				23E777251981F425000229F3 /* TKGeocoder.h */,
+				23E777261981F425000229F3 /* TKGeocoder.m */,
+			);
+			name = Locator;
+			sourceTree = "<group>";
+		};
 		23E776EA1981F268000229F3 = {
 			isa = PBXGroup;
 			children = (
 				23E776FC1981F268000229F3 /* LocateDemo */,
 				23E776F51981F268000229F3 /* Frameworks */,
 				23E776F41981F268000229F3 /* Products */,
-				0C5106987C6746CB98A730C5 /* Pods.xcconfig */,
+				F4AF76CA1FBAC289F9DE7F4F /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,13 +102,19 @@
 				23E777061981F268000229F3 /* AppDelegate.m */,
 				23E777291981F425000229F3 /* TKViewController.h */,
 				23E7772A1981F425000229F3 /* TKViewController.m */,
-				23E777271981F425000229F3 /* TKLocator.h */,
-				23E777281981F425000229F3 /* TKLocator.m */,
-				23E777251981F425000229F3 /* TKGeocoder.h */,
-				23E777261981F425000229F3 /* TKGeocoder.m */,
+				0A529BEA1A8B374600023725 /* Locator */,
 				23E777081981F268000229F3 /* Images.xcassets */,
 			);
 			path = LocateDemo;
+			sourceTree = "<group>";
+		};
+		F4AF76CA1FBAC289F9DE7F4F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				060CEC34D70CF18F354A76A6 /* Pods.debug.xcconfig */,
+				FF0874EE431B458D85F3BA5B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +189,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		613B2B6089CE42C5A4AC2460 /* Check Pods Manifest.lock */ = {
@@ -279,7 +297,7 @@
 		};
 		23E777201981F269000229F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C5106987C6746CB98A730C5 /* Pods.xcconfig */;
+			baseConfigurationReference = 060CEC34D70CF18F354A76A6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -295,7 +313,7 @@
 		};
 		23E777211981F269000229F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C5106987C6746CB98A730C5 /* Pods.xcconfig */;
+			baseConfigurationReference = FF0874EE431B458D85F3BA5B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

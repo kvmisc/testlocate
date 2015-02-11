@@ -1,22 +1,22 @@
 PODS:
   - CocoaLumberjack (1.9.2):
-    - CocoaLumberjack/Extensions
+    - CocoaLumberjack/Extensions (= 1.9.2)
   - CocoaLumberjack/Core (1.9.2)
   - CocoaLumberjack/Extensions (1.9.2):
     - CocoaLumberjack/Core
   - libextobjc (0.4.1):
-    - libextobjc/EXTADT
-    - libextobjc/EXTConcreteProtocol
-    - libextobjc/EXTKeyPathCoding
-    - libextobjc/EXTNil
-    - libextobjc/EXTSafeCategory
-    - libextobjc/EXTScope
-    - libextobjc/EXTSelectorChecking
-    - libextobjc/EXTSynthesize
-    - libextobjc/NSInvocation+EXT
-    - libextobjc/NSMethodSignature+EXT
-    - libextobjc/RuntimeExtensions
-    - libextobjc/UmbrellaHeader
+    - libextobjc/EXTADT (= 0.4.1)
+    - libextobjc/EXTConcreteProtocol (= 0.4.1)
+    - libextobjc/EXTKeyPathCoding (= 0.4.1)
+    - libextobjc/EXTNil (= 0.4.1)
+    - libextobjc/EXTSafeCategory (= 0.4.1)
+    - libextobjc/EXTScope (= 0.4.1)
+    - libextobjc/EXTSelectorChecking (= 0.4.1)
+    - libextobjc/EXTSynthesize (= 0.4.1)
+    - libextobjc/NSInvocation+EXT (= 0.4.1)
+    - libextobjc/NSMethodSignature+EXT (= 0.4.1)
+    - libextobjc/RuntimeExtensions (= 0.4.1)
+    - libextobjc/UmbrellaHeader (= 0.4.1)
   - libextobjc/EXTADT (0.4.1):
     - libextobjc/RuntimeExtensions
   - libextobjc/EXTConcreteProtocol (0.4.1):
@@ -39,7 +39,7 @@ PODS:
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.4.1)
   - libextobjc/UmbrellaHeader (0.4.1)
-  - tapkit (1.0.9)
+  - tapkit (1.1.2)
 
 DEPENDENCIES:
   - CocoaLumberjack (~> 1.9.0)
@@ -50,9 +50,14 @@ EXTERNAL SOURCES:
   tapkit:
     :git: https://github.com/kvmisc/tapkit.git
 
+CHECKOUT OPTIONS:
+  tapkit:
+    :commit: 021d9ef8aea16ed5667646a7e9bd37f26ea651fa
+    :git: https://github.com/kvmisc/tapkit.git
+
 SPEC CHECKSUMS:
   CocoaLumberjack: 205769c032b5fef85b92472046bcc8b7e7c8a817
   libextobjc: d6146fce3ebea986b7f75fcb4c967639200b88b0
-  tapkit: 96c199276882c7423fc3d374c2b194a654ebbd98
+  tapkit: 80194f40b0eb5904b5997d85e15bdaf585f568a2
 
-COCOAPODS: 0.33.1
+COCOAPODS: 0.36.0.beta.1
